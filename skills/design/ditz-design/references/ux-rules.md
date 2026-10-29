@@ -1,0 +1,125 @@
+# Aturan UX (119 guideline, padat)
+
+Sumber: kumpulan 119 guideline UX dari UI/UX Pro Max (verified 2026-08), diringkas ke satu baris per aturan. Cuma aturan yang bisa dicek di kode atau layar yang masuk.
+
+Label prioritas: **[Critical]** harus beres sebelum kirim, **[High]** beres sebelum rilis, **[Medium]** perbaiki kalau kena area yang disentuh, **[Low]** polish.
+
+- **Navigation / Smooth Scroll** [High]: Use scroll-behavior: smooth on html element. Salah: Jump directly without transition.
+- **Navigation / Sticky Navigation** [Medium]: Add padding-top to body equal to nav height. Salah: Let nav overlap first section content.
+- **Navigation / Active State** [Medium]: Highlight active nav item with color/underline. Salah: No visual feedback on current location.
+- **Navigation / Back Button** [High]: Preserve navigation history properly. Salah: Break browser/app back button behavior.
+- **Navigation / Deep Linking** [Medium]: Update URL on state/view changes. Salah: Static URLs for dynamic content.
+- **Navigation / Breadcrumbs** [Low]: Use for sites with 3+ levels of depth. Salah: Use for flat single-level sites.
+- **Animation / Excessive Motion** [High]: Animate 1-2 key elements per view maximum. Salah: Animate everything that moves.
+- **Animation / Duration Timing** [Medium]: Use shared motion tokens and test that feedback stays responsive. Salah: Present 150-300ms or any cutoff as a universal requirement.
+- **Animation / Reduced Motion** [High]: Check prefers-reduced-motion media query. Salah: Ignore accessibility motion settings.
+- **Animation / Loading States** [High]: Use skeleton screens or spinners. Salah: Leave UI frozen with no feedback.
+- **Animation / Hover vs Tap** [High]: Use click/tap for primary interactions. Salah: Rely only on hover for important actions.
+- **Animation / Continuous Animation** [Medium]: Use for loading indicators only. Salah: Use for decorative elements.
+- **Animation / Transform Performance** [Medium]: Use transform and opacity for animations. Salah: Animate width/height/top/left properties.
+- **Animation / Easing Functions** [Low]: Use deceleration when arriving acceleration when leaving and linear for constant-rate progress. Salah: Reject linear easing even for steady rotation or progress.
+- **Layout / Z-Index Management** [High]: Define z-index scale system (10 20 30 50). Salah: Use arbitrary large z-index values.
+- **Layout / Overflow Hidden** [Medium]: Test all content fits within containers. Salah: Blindly apply overflow-hidden.
+- **Layout / Fixed Positioning** [Medium]: Account for safe areas and other fixed elements. Salah: Stack multiple fixed elements carelessly.
+- **Layout / Stacking Context** [Medium]: Understand what creates new stacking context. Salah: Expect z-index to work across contexts.
+- **Layout / Content Jumping** [High]: Reserve appropriate space or keep async states in a stable content-driven container. Salah: Insert compact text or media without a layout strategy.
+- **Layout / Viewport Units** [Medium]: Use dvh or account for mobile browser chrome. Salah: Use 100vh for full-screen mobile layouts.
+- **Layout / Container Width** [Medium]: Limit max-width for text content (65-75ch). Salah: Let text span full viewport width.
+- **Touch / Touch Target Size** [High]: Use 44pt on iOS and 48dp on Android; for web use the separate WCAG Target Size rule. Salah: Treat one unit or minimum as universal across platforms.
+- **Touch / Touch Spacing** [Medium]: Minimum 8px gap between touch targets. Salah: Tightly packed clickable elements.
+- **Touch / Gesture Conflicts** [Medium]: Avoid horizontal swipe on main content. Salah: Override system gestures.
+- **Touch / Tap Delay** [Medium]: Use touch-action CSS or fastclick. Salah: Default mobile tap handling.
+- **Touch / Pull to Refresh** [Low]: Disable where not needed. Salah: Enable by default everywhere.
+- **Touch / Haptic Feedback** [Low]: Use for confirmations and important actions. Salah: Overuse vibration feedback.
+- **Interaction / Focus States** [High]: Use a visible focus ring on every interactive control, including modal controls. Salah: Remove focus outline without replacement.
+- **Interaction / Hover States** [Medium]: Change cursor and add subtle visual change. Salah: No hover feedback on clickable elements.
+- **Interaction / Active States** [Medium]: Add pressed/active state visual change. Salah: No feedback during interaction.
+- **Interaction / Disabled States** [Medium]: Reduce opacity and change cursor. Salah: Confuse disabled with normal state.
+- **Interaction / Loading Buttons** [High]: Disable button and show loading state. Salah: Allow multiple clicks during processing.
+- **Interaction / Error Feedback** [High]: Show clear error messages near problem. Salah: Silent failures with no feedback.
+- **Interaction / Success Feedback** [Medium]: Show success message or visual change. Salah: No confirmation of completed action.
+- **Interaction / Confirmation Dialogs** [High]: Confirm before delete/irreversible actions. Salah: Delete without confirmation.
+- **Accessibility / Color Contrast** [High]: Minimum 4.5:1 ratio for normal text. Salah: Low contrast text.
+- **Accessibility / Color Only** [High]: Use icons/text in addition to color. Salah: Red/green only for error/success.
+- **Accessibility / Alt Text** [High]: Descriptive alt text for meaningful images. Salah: Empty or missing alt attributes.
+- **Accessibility / Heading Hierarchy** [Medium]: Use sequential heading levels h1-h6. Salah: Skip heading levels or misuse for styling.
+- **Accessibility / ARIA Labels** [High]: Add aria-label for icon-only buttons. Salah: Icon buttons without labels.
+- **Accessibility / Keyboard Navigation** [High]: Keep tab order aligned with visual order and test every action without a pointer. Salah: Keyboard traps or illogical tab order.
+- **Accessibility / Screen Reader** [Medium]: Use semantic HTML and ARIA properly. Salah: Div soup with no semantics.
+- **Accessibility / Form Labels** [High]: Use label with for attribute or wrap input. Salah: Placeholder-only inputs.
+- **Accessibility / Error Messages** [High]: Use aria-live or role=alert for errors. Salah: Visual-only error indication.
+- **Accessibility / Skip Links** [Medium]: Provide skip to main content link. Salah: No skip link on nav-heavy pages.
+- **Performance / Image Optimization** [High]: Use appropriate size and format (WebP). Salah: Unoptimized full-size images.
+- **Performance / Lazy Loading** [Medium]: Lazy load below-fold images and content. Salah: Load everything upfront.
+- **Performance / Code Splitting** [Medium]: Split code by route/feature. Salah: Single large bundle.
+- **Performance / Caching** [Medium]: Set appropriate cache headers. Salah: No caching strategy.
+- **Performance / Font Loading** [Medium]: Use font-display swap or optional. Salah: Invisible text during font load.
+- **Performance / Third Party Scripts** [Medium]: Load non-critical scripts async/defer. Salah: Synchronous third-party scripts.
+- **Performance / Bundle Size** [Medium]: Monitor and minimize bundle size. Salah: Ignore bundle size growth.
+- **Performance / Render Blocking** [Medium]: Inline critical CSS defer non-critical. Salah: Large blocking CSS files.
+- **Forms / Input Labels** [High]: Always show label above or beside input. Salah: Placeholder as only label.
+- **Forms / Error Placement** [High]: Show a specific error below the input and reference it with aria-describedby. Salah: Show only a top-level error without identifying each invalid field.
+- **Forms / Inline Validation** [Medium]: Validate on blur for most fields. Salah: Validate only on submit.
+- **Forms / Input Types** [Medium]: Use email tel number url etc. Salah: Text input for everything.
+- **Forms / Autofill Support** [Medium]: Use autocomplete attribute properly. Salah: Block or ignore autofill.
+- **Forms / Required Indicators** [Medium]: Use asterisk or (required) text. Salah: No indication of required fields.
+- **Forms / Password Visibility** [Medium]: Toggle to show/hide password. Salah: No visibility toggle.
+- **Forms / Submit Feedback** [High]: Show loading then success/error state. Salah: No feedback after submit.
+- **Forms / Input Affordance** [Medium]: Use distinct input styling. Salah: Inputs that look like plain text.
+- **Forms / Mobile Keyboards** [Medium]: Use inputmode attribute. Salah: Default keyboard for all inputs.
+- **Responsive / Mobile First** [Medium]: Start with mobile styles then add breakpoints. Salah: Desktop-first causing mobile issues.
+- **Responsive / Breakpoint Testing** [Medium]: Test at 320 375 414 768 1024 1440. Salah: Only test on your device.
+- **Responsive / Touch Friendly** [High]: Increase touch targets on mobile. Salah: Same tiny buttons on mobile.
+- **Responsive / Readable Font Size** [High]: Minimum 16px body text on mobile. Salah: Tiny text on mobile.
+- **Responsive / Viewport Meta** [High]: Use width=device-width initial-scale=1. Salah: Missing or incorrect viewport.
+- **Responsive / Horizontal Scroll** [High]: Ensure content fits viewport width. Salah: Content wider than viewport.
+- **Responsive / Image Scaling** [Medium]: Use max-width: 100% on images. Salah: Fixed width images overflow.
+- **Responsive / Table Handling** [Medium]: Use horizontal scroll or card layout. Salah: Wide tables breaking layout.
+- **Typography / Line Height** [Medium]: Use 1.5-1.75 for body text. Salah: Cramped or excessive line height.
+- **Typography / Line Length** [Medium]: Limit to 65-75 characters per line. Salah: Full-width text on large screens.
+- **Typography / Font Size Scale** [Medium]: Use consistent modular scale. Salah: Random font sizes.
+- **Typography / Font Loading** [Medium]: Reserve space with fallback font. Salah: Layout shift when fonts load.
+- **Typography / Contrast Readability** [High]: Use darker text on light backgrounds. Salah: Gray text on gray background.
+- **Typography / Heading Clarity** [Medium]: Clear size/weight difference. Salah: Headings similar to body text.
+- **Feedback / Loading Indicators** [High]: Follow platform and component guidance; preserve layout focus and accessible busy status. Salah: Apply one timing threshold to every operation or leave long waits unexplained.
+- **Feedback / Empty States** [Medium]: Show helpful message and action. Salah: Blank empty screens.
+- **Feedback / Error Recovery** [Medium]: Provide clear next steps. Salah: Error without recovery path.
+- **Feedback / Progress Indicators** [Medium]: Step indicators or progress bar. Salah: No indication of progress.
+- **Feedback / Toast Notifications** [Medium]: Auto-dismiss after 3-5 seconds. Salah: Toasts that never disappear.
+- **Feedback / Confirmation Messages** [Medium]: Brief success message. Salah: Silent success.
+- **Content / Truncation** [Medium]: Truncate with ellipsis and expand option. Salah: Overflow or broken layout.
+- **Content / Date Formatting** [Low]: Use relative or locale-aware dates. Salah: Ambiguous date formats.
+- **Content / Number Formatting** [Low]: Use thousand separators or abbreviations. Salah: Long unformatted numbers.
+- **Content / Placeholder Content** [Low]: Use realistic sample data. Salah: Lorem ipsum everywhere.
+- **Onboarding / User Freedom** [Medium]: Provide Skip and Back buttons. Salah: Force linear unskippable tour.
+- **Search / Autocomplete** [Medium]: Show predictions as user types. Salah: Require full type and enter.
+- **Search / No Results** [Medium]: Show 'No results' with suggestions. Salah: Blank screen or '0 results'.
+- **Data Entry / Bulk Actions** [Low]: Allow multi-select and bulk edit. Salah: Single row actions only.
+- **AI Interaction / Disclaimer** [High]: Clearly label AI generated content. Salah: Present AI as human.
+- **AI Interaction / Streaming** [Medium]: Stream text response token by token. Salah: Show loading spinner for 10s+.
+- **Spatial UI / Gaze Hover** [High]: Scale/highlight element on look. Salah: Static element until pinch.
+- **Spatial UI / Depth Layering** [Medium]: Use glass material and z-offset. Salah: Flat opaque panels blocking view.
+- **Sustainability / Auto-Play Video** [Medium]: Prefer click-to-play; provide pause and captions; stop off-screen and honor reduced motion. Salah: Auto-play high-resolution loops without pause or captions.
+- **Sustainability / Asset Weight** [Medium]: Compress and lazy load 3D models. Salah: Load 50MB textures.
+- **AI Interaction / Feedback Loop** [Low]: Thumps up/down or 'Regenerate'. Salah: Static output only.
+- **Accessibility / Motion Sensitivity** [High]: Honor prefers-reduced-motion and present the final readable state without parallax or scroll-jacking. Salah: Force scroll effects.
+- **Accessibility / Focus Not Obscured (Minimum)** [High]: Offset sticky UI with scroll-padding and dismiss or move persistent overlays. Salah: Let headers footers banners or chat widgets fully cover focus.
+- **Accessibility / Focus Not Obscured (Enhanced)** [Medium]: Keep the entire focused component unobscured by author-created content. Salah: Present this enhanced AAA criterion as an AA requirement or allow persistent UI to hide any part of focus.
+- **Accessibility / Focus Appearance** [Medium]: Use an indicator at least as large as a 2 CSS px perimeter with 3:1 state contrast. Salah: Present this enhanced AAA criterion as an AA requirement or use a thin low-contrast outline.
+- **Accessibility / Dragging Movements** [High]: Add buttons menus or tap-to-move controls and retain keyboard operation. Salah: Make dragging the only way to reorder resize or select.
+- **Accessibility / Target Size (Minimum)** [High]: Use at least 24 by 24 CSS px or verify spacing equivalent inline user-agent or essential exceptions. Salah: Assume native 44pt or 48dp guidance defines web conformance.
+- **Accessibility / Consistent Help** [Medium]: Keep contact self-help and automated help in consistent locations. Salah: Move help controls to different locations on each page.
+- **Forms / Redundant Entry** [Medium]: Auto-populate prior values or let users select previously entered information. Salah: Ask users to retype the same address or account data without necessity.
+- **Security / Accessibility / Accessible Authentication (Minimum)** [Critical]: Allow password managers and paste; offer passkeys OAuth or another non-cognitive method. Salah: Block paste or require manual OTP transcription with no alternative.
+- **Animation / Auto-Rotating Content Controls** [High]: Provide previous next and play/pause; stop on focus or hover and when reduced motion is requested. Salah: Auto-advance slides without a stop control.
+- **Forms / Accessibility / Focusable Error Summary** [High]: Place it at the top of the form; move focus to its heading or container after failed submit; link each item to its invalid field; retain inline errors. Salah: Replace inline errors with a visual-only summary or move focus on every blur.
+- **Typography / Heading Line Balance** [Medium]: Bound the measure and test natural-wrap fallback across widths fonts and locales. Salah: Promise an exact final line or insert blanket nonbreaking spaces or hardcoded br tags.
+- **Layout / Long Token Wrapping** [High]: Use overflow-wrap anywhere and let flex or grid text children shrink. Salah: Apply word-break break-all to all prose.
+- **Accessibility / Text Reflow and Spacing** [Critical]: Use fluid sizes content-driven height and unitless line height. Salah: Clip text in fixed-width or fixed-height boxes.
+- **Content / Essential Text Truncation** [Critical]: Wrap stack resize or provide a visible full-detail path. Salah: Clamp essential meaning only to make cards uniform.
+- **Content / Compact Label Semantics** [High]: Choose static or interactive markup from the label's meaning and ownership. Salah: Make every pill clickable or encode status with color alone.
+- **Layout / Chip Collection Reflow** [High]: Wrap the collection or use an operable +n disclosure for hidden overflow values. Salah: Force all chips into one clipped row or hide overflow values.
+- **Content / Compact Label Overflow** [High]: Bound only unpredictable values; use nowrap with a shrinkable label; expose full text to keyboard pointer and touch users. Salah: Let one compact label wrap to a second line or use a hover-only tooltip.
+- **Accessibility / Compact Control Semantics** [Critical]: Prefer a button and expose pressed or selected state that matches the visible label. Salah: Use a clickable div or reveal the only action on hover.
+- **Accessibility / Contextual Live Badge Updates** [High]: Use one appropriate atomic status message such as 3 items in cart. Salah: Announce a bare number or make every badge a competing live region.
+- **Animation / Cancellable State Transitions** [High]: Cancel or replace prior motion; set the final semantic state directly and handle cancellation cleanup. Salah: Depend on animationend or transitionend for required state correctness.
