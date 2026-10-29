@@ -2,7 +2,7 @@
 
 Kumpulan skill agent untuk kerja engineering dan UI. Ditulis buat dipakai, bukan buat dibaca sekali terus dilupakan: tiap skill satu halaman, punya gerbang verifikasi, dan nggak nyuruh lo ngarang.
 
-21 skill. Total 258 KB. Core skill rata-rata 2 KB. Reference yang berat cuma dibuka kalau memang perlu.
+21 skill. 267 KB total di repo, termasuk dokumentasi. Core skill rata-rata 2 KB. Reference yang berat cuma dibuka kalau memang perlu.
 
 ```
 skills/engineering/   18 skill kerja: rencana, kode, review, DB, API, deploy, CI, performance, security
